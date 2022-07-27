@@ -1,0 +1,15 @@
+name: Update on folder1
+on:
+  push:
+    path:
+      - '**/folder1/*'
+jobs:
+  Change:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Repository ${{ github.repository }}."
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
+          done
