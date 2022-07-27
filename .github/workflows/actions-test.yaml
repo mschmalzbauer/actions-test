@@ -5,5 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Repository ${{ github.repository }}."
-      - name: List files in the repository
-        run: ls ${{ github.workspace }}
+      - name: Check Changed Files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
+          done
