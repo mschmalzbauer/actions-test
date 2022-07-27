@@ -4,6 +4,6 @@ jobs:
   Testing-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-	  - run: echo "Repository: ${{ github.repository }}."
+      - run: echo "Repository: ${{ github.repository }}."
       - name: List files in the repository
         run: ls ${{ github.workspace }}
