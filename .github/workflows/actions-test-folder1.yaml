@@ -5,6 +5,6 @@ on:
       - '**/folder1/*'
 jobs:
   deploy-changed-yamls:
-    uses: .github/workflows/deploy-to-rke2.yaml@main
+    uses: ./deploy-to-rke2.yaml@main
     with:
       path: folder1
