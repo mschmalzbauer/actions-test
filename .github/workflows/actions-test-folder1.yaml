@@ -1,7 +1,7 @@
 name: Update on folder1
 on:
   push:
-    path:
+    paths:
       - '**/folder1/*'
 jobs:
   Change:
