@@ -1,0 +1,11 @@
+name: Update on folder1
+on:
+  push:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+      - name: List changed directory
+        run: ls -l ${{ github.workspace }}/${{ github.path }}
