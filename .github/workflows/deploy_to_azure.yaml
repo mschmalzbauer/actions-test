@@ -1,0 +1,48 @@
+name: deploy_to_azure
+
+on:
+#  push:
+#    branches:
+#      - dev-env
+#    paths:
+#      - '**/gato/*'
+
+    workflow_dispatch:
+      inputs:
+        app_path:
+          type: string
+	  
+jobs:
+  deploy:
+    runs-on: ["self-hosted", "Linux"]
+
+#    env:
+#      ARM_CLIENT_ID: '${{secrets.HUB_AZ_CLIENT_ID}}'
+#      ARM_CLIENT_SECRET: '${{secrets.HUB_AZ_CLIENT_SECRET}}'
+#      ARM_SUBSCRIPTION_ID: '${{secrets.HUB_AZ_SUBSCRIPTION_ID}}'
+#      ARM_TENANT_ID: '${{secrets.AZ_TENANT_ID}}'
+
+    steps:
+    - uses: actions/checkout@v3
+      submodules: 'true'
+
+    - name: echo test
+      run: echo ${{ github.path }}
+	  
+#    - name: terraform setup
+#      uses: hashicorp/setup-terraform@v1
+#      with:
+#        terraform_wrapper: false
+#
+#    - name: terraform init
+#      run: terraform init -backend-config="storage_account_name=devnetworkhub71997"
+#      working-directory: gato
+#      
+#    - name: Terraform plan
+#      run: terraform plan -out=plan.tfplan
+#      working-directory: stacks/ams4truck-runtime
+#    
+#    - name: Terraform apply
+#      run: terraform apply -auto-approve -lock=false plan.tfplan
+#      working-directory: stacks/ams4truck-runtime
+

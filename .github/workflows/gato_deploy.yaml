@@ -1,0 +1,14 @@
+name: gato_deploy
+on:
+#  push:
+#    paths:
+#      - gato/**
+
+  workflow_dispatch:
+  
+jobs:
+  deploy_to_azure:
+    uses: ./.github/workflows/deploy_to_azure.yaml
+    with:
+      path: gato
+      branch: dev-env
