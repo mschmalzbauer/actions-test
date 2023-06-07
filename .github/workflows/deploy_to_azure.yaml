@@ -24,7 +24,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      submodules: 'true'
 
     - name: echo test
       run: echo ${{ github.path }}
