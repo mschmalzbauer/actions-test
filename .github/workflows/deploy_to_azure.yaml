@@ -7,7 +7,7 @@ on:
 #    paths:
 #      - '**/gato/*'
 
-    workflow_dispatch:
+    workflow_call:
       inputs:
         app_path:
           type: string
