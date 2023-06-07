@@ -5,6 +5,10 @@ on:
       path:
         required: true
         type: string
+      branch_name:
+        required: true
+        type: string
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -12,4 +16,6 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
       - name: List changed directory
-        run: ls -l ${{ github.workspace }}/${{ inputs.path }}
+        run: |
+          echo ${{ inputs.branch_name }}
+          ls -l ${{ github.workspace }}/${{ inputs.path }}

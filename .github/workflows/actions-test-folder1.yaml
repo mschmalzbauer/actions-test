@@ -8,3 +8,4 @@ jobs:
     uses: mschmalzbauer/actions-test/.github/workflows/deploy-to-rke2.yaml@main
     with:
       path: folder1
+      branch_name: ${{ github.ref_name }}
