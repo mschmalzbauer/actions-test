@@ -7,10 +7,10 @@ on:
 #    paths:
 #      - '**/gato/*'
 
-    workflow_call:
-      inputs:
-        app_path:
-          type: string
+  workflow_call:
+    inputs:
+      app_path:
+        type: string
 
 jobs:
   deploy:
