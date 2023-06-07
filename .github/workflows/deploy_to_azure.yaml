@@ -11,7 +11,7 @@ on:
       inputs:
         app_path:
           type: string
-	  
+
 jobs:
   deploy:
     runs-on: ["self-hosted", "Linux"]
