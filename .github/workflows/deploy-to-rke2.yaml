@@ -8,6 +8,8 @@ on:
       branch_name:
         required: true
         type: string
+      other_test:
+        type: string
 
 jobs:
   deploy:
@@ -22,4 +24,6 @@ jobs:
           echo ${{ env.TEST_SECRET }}
           echo "==="
           echo ${{ env.OTHER_TEST }}
+          echo "==="
+          echo ${{ inputs.other_test }}
           ls -l ${{ github.workspace }}/${{ inputs.path }}
