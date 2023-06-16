@@ -18,4 +18,5 @@ jobs:
       - name: List changed directory
         run: |
           echo ${{ inputs.branch_name }}
+          echo ${{ env.TEST_SECRET }}
           ls -l ${{ github.workspace }}/${{ inputs.path }}

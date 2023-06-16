@@ -4,9 +4,12 @@ on:
 #    paths:
 #      - '**/folder1/*'
   workflow_dispatch:
-  
+
 jobs:
   deploy-changed-yamls:
+    env:
+      TEST_SECRET: '${{secrets.TEST_SECRET}}'
+      
     uses: mschmalzbauer/actions-test/.github/workflows/deploy-to-rke2.yaml@main
     with:
       path: folder1
