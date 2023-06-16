@@ -1,8 +1,10 @@
 name: Update on folder1
 on:
-  push:
-    paths:
-      - '**/folder1/*'
+#  push:
+#    paths:
+#      - '**/folder1/*'
+  workflow_dispatch:
+  
 jobs:
   deploy-changed-yamls:
     uses: mschmalzbauer/actions-test/.github/workflows/deploy-to-rke2.yaml@main
