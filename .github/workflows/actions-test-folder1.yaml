@@ -7,6 +7,7 @@ on:
 
 env:
   TEST_SECRET: '${{secrets.TEST_SECRET}}'
+  OTHER_TEST: 'ENV12'
 
 jobs:
   deploy-changed-yamls:

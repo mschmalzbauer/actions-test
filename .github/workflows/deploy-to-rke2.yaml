@@ -20,4 +20,6 @@ jobs:
           echo ${{ inputs.branch_name }}
           echo "==="
           echo ${{ env.TEST_SECRET }}
+          echo "==="
+          echo ${{ env.OTHER_TEST }}
           ls -l ${{ github.workspace }}/${{ inputs.path }}
