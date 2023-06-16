@@ -9,8 +9,9 @@ jobs:
   deploy-changed-yamls:
     env:
       TEST_SECRET: '${{secrets.TEST_SECRET}}'
-      
-    uses: mschmalzbauer/actions-test/.github/workflows/deploy-to-rke2.yaml@main
-    with:
-      path: folder1
-      branch_name: ${{ github.ref_name }}
+
+    steps:  
+    - uses: mschmalzbauer/actions-test/.github/workflows/deploy-to-rke2.yaml@main
+      with:
+        path: folder1
+        branch_name: ${{ github.ref_name }}
