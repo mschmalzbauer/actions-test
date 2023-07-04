@@ -30,9 +30,9 @@ jobs:
       with:
         terraform_wrapper: false
 
-#    - name: terraform init
-#      run: terraform init -backend-config="storage_account_name=devnetworkhub71997"
-#      working-directory: gato
+    - name: terraform init
+      run: terraform init
+      working-directory: gato
 #      
 #    - name: Terraform plan
 #      run: terraform plan -out=plan.tfplan
