@@ -32,7 +32,7 @@ jobs:
 
     - name: terraform init
       run: terraform init
-      working-directory: gato
+      working-directory: folder1
 #      
 #    - name: Terraform plan
 #      run: terraform plan -out=plan.tfplan
