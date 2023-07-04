@@ -25,14 +25,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: echo test
-      run: echo ${{ github.path }}
+    - name: terraform setup
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_wrapper: false
 
-#    - name: terraform setup
-#      uses: hashicorp/setup-terraform@v1
-#      with:
-#        terraform_wrapper: false
-#
 #    - name: terraform init
 #      run: terraform init -backend-config="storage_account_name=devnetworkhub71997"
 #      working-directory: gato
