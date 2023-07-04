@@ -10,4 +10,4 @@ jobs:
   deploy_to_azure:
     uses: ./.github/workflows/deploy_to_azure.yaml
     with:
-      app_path: gato
+      app_path: folder1
