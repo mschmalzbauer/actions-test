@@ -1,0 +1,12 @@
+name: Integration Workflow
+
+on:
+  push:
+    paths:
+      - 'environment/int/**'
+
+jobs:
+  output_environment:
+    uses: ./.github/workflows/env-secrets-test.yaml
+    with:
+      env: 'int'
