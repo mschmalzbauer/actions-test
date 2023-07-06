@@ -1,0 +1,12 @@
+name: Integration Workflow
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  echo_env:
+    runs-on: ubuntu-latest
+    environment: int
+    steps:
+      - name: output_env
+        run: echo ${{ vars }}
