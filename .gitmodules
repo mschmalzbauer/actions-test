@@ -1,0 +1,3 @@
+[submodule "tf-modules"]
+	path = tf-modules
+	url = https://github.com/mschmalzbauer/tf-modules.git
