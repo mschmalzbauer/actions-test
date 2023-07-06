@@ -5,5 +5,8 @@ on:
     
 jobs:
   output_environment:
+    runs-on: ubuntu-latest
     environment: dev
-    uses: ./.github/workflows/env-secrets-test.yaml
+    steps:
+      - name: output_all
+        uses: ./.github/workflows/env-secrets-test.yaml
