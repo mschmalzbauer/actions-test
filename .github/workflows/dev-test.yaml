@@ -9,6 +9,9 @@ jobs:
     environment: dev
     env:
       MY_VAR: ${{ vars.VAR_1 }}      
+    steps:
+      - name: echo
+        run: echo $MY_VAR
 
   output_environment:
     uses: ./.github/workflows/env-secrets-test.yaml
