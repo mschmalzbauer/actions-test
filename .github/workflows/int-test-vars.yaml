@@ -1,4 +1,4 @@
-name: Integration Workflow
+name: Integration Vars Test
 
 on:
   workflow_dispatch:
