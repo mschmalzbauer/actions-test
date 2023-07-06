@@ -5,4 +5,5 @@ on:
     
 jobs:
   output_environment:
+    environment: dev
     uses: ./.github/workflows/env-secrets-test.yaml
