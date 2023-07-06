@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'environment/int/**'
+  workflow_dispatch:
 
 jobs:
   output_environment:
