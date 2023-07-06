@@ -9,4 +9,4 @@ jobs:
     environment: int
     steps:
       - name: output_env
-        run: echo ${{ vars }}
+        run: printenv
