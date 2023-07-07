@@ -7,7 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  output_environment:
-    uses: ./.github/workflows/env-secrets-test.yaml
+  deployment:
+    # uses: ./.github/workflows/env-secrets-test.yaml
+    uses: ./ .github/actions/executeTerraform
     with:
       env: 'int'
