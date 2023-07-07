@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: 'dev'
 
-    env:
-      VAR_1: ${{ vars.VAR_1 }}
-
     steps:
       - name: Git Checkout
         uses: actions/checkout@v3
