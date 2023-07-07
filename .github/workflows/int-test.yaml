@@ -9,6 +9,4 @@ on:
 jobs:
   deployment:
     # uses: ./.github/workflows/env-secrets-test.yaml
-    uses: ./ .github/actions/executeTerraform
-    with:
-      env: 'int'
+    uses: ./ .github/actions/executeTerraform@v1
