@@ -8,5 +8,8 @@ on:
 
 jobs:
   deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Terraform
     # uses: ./.github/workflows/env-secrets-test.yaml
-    uses: ./ .github/actions/executeTerraform@v1
+        uses: ./ .github/actions/executeTerraform
