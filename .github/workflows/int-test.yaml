@@ -10,6 +10,8 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      
       - name: Terraform
     # uses: ./.github/workflows/env-secrets-test.yaml
         uses: ./ .github/actions/executeTerraform
