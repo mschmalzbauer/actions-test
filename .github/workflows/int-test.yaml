@@ -1,9 +1,6 @@
 name: Integration Workflow
 
 on:
-  push:
-    paths:
-      - 'environment/int/**'
   workflow_dispatch:
 
 jobs:
