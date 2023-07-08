@@ -17,6 +17,15 @@ jobs:
     steps:
       - name: Git Checkout
         uses: actions/checkout@v3
+      - name: Checkout tfmodule
+        uses: actions/checkout@v3
+        with:
+          repository: mschmalzbauer/tfmodules
+          
+      - name: list
+        run: |
+          pwd
+          ls -l
 
       - name: Output Env
         run: printenv
