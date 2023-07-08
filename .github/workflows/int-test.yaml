@@ -16,14 +16,7 @@ jobs:
 
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v3
-        with:
-          path: 'app'
-      - name: Checkout tfmodule
-        uses: actions/checkout@v3
-        with:
-          repository: mschmalzbauer/tf-modules
-          path: 'tf-modules'
+        uses: mschmalzbauer/.github/actions/checkoutRepo@main
           
       - name: list
         run: |
