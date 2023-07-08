@@ -18,6 +18,9 @@ jobs:
       - name: Git Checkout
         uses: actions/checkout@v3
 
-      - name: Terraform
+      - name: Output Env
+        run: printenv
+        
+      #- name: Terraform
     # uses: ./.github/workflows/env-secrets-test.yaml
-        uses: mschmalzbauer/.github/actions/executeTerraform@main
+        #uses: mschmalzbauer/.github/actions/executeTerraform@main
