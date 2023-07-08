@@ -17,15 +17,6 @@ jobs:
     steps:
       - name: Git Checkout
         uses: mschmalzbauer/.github/actions/checkoutRepo@main
-          
-      - name: list
-        run: |
-          pwd
-          ls -l
-
-      - name: Output Env
-        run: printenv
         
-      #- name: Terraform
-    # uses: ./.github/workflows/env-secrets-test.yaml
-        #uses: mschmalzbauer/.github/actions/executeTerraform@main
+      - name: Terraform
+        uses: mschmalzbauer/.github/actions/executeTerraform@main
