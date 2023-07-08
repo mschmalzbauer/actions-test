@@ -5,11 +5,16 @@ on:
     paths:
       - 'environment/int/**'
   workflow_dispatch:
+    inputs:
+      env:
+        options:
+        - dev
+        - int
     
 jobs:
   echo_env:
     runs-on: ubuntu-latest
-    environment: int
+    environment: ${{ inputs.env }}
     steps:
       - name: output_env
         run: printenv
