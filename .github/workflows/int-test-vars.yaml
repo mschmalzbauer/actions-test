@@ -1,6 +1,9 @@
 name: Integration Vars Test
 
 on:
+  push:
+    paths:
+      - 'environment/int/**'
   workflow_dispatch:
     
 jobs:
