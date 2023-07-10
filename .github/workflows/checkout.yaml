@@ -9,4 +9,4 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: mschmalzbauer/.github/actions/checkoutRepo/action.yaml@main
+        uses: mschmalzbauer/.github/actions/checkoutRepo@main
