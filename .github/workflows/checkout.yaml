@@ -1,0 +1,12 @@
+name: Checkout
+
+on:
+  workflow_dispatch
+  
+jobs:
+  checkout_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: mschmalzbauer/.github/actions/checkoutRepo/action.yaml@main
