@@ -10,3 +10,5 @@ jobs:
     steps:
       - name: Checkout
         uses: mschmalzbauer/.github/actions/checkoutRepo@main
+        with:
+          persToken: ${{secrets.PAT }}
