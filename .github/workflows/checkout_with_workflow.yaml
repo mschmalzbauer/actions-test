@@ -1,0 +1,11 @@
+name: Checkout With Workflow
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  all_together:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: mschmalzbauer/.github/workflows/checkout.yaml@main
