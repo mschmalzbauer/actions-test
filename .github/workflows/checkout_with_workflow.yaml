@@ -5,7 +5,4 @@ on:
   
 jobs:
   all_together:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: mschmalzbauer/.github/workflows/checkout.yaml@main
+    uses: mschmalzbauer/.github/workflows/checkout.yaml@main
