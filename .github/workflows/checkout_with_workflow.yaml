@@ -1,8 +1,0 @@
-name: Checkout With Workflow
-
-on:
-  workflow_dispatch:
-  
-jobs:
-  all_together:
-    uses: mschmalzbauer/.github/workflows/checkout.yaml@main
