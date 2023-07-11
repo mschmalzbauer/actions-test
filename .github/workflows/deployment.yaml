@@ -5,10 +5,10 @@ on:
     
 jobs:
   checkout:
-    uses: mschmalzbauer/.github/.github/workflows/checkout.yaml@main
+    runs-on: ubuntu-latest
 
-#    runs-on: ubuntu-latest
-
-#    steps:
-#      - name: Checkout Repos via Composite Action
-#        uses: mschmalzbauer/.github/actions/checkoutRepo@main
+    environment: 'dev'
+    
+    steps:
+      - name: Checkout Repos via Composite Action
+        uses: mschmalzbauer/.github/actions/checkoutRepo@main
