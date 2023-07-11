@@ -5,7 +5,7 @@ on:
     
 jobs:
   checkout:
-    uses: mschmalzbauer/.github/workflows/checkout.yaml@main
+    uses: mschmalzbauer/.github/.github/workflows/checkout.yaml@main
 
 #    runs-on: ubuntu-latest
 
