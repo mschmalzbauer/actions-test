@@ -1,4 +1,4 @@
-name: Deployment
+Branchname: Deployment
 
 on:
   workflow_dispatch:
@@ -10,11 +10,5 @@ jobs:
     environment: 'dev'
     
     steps:
-      - name: Checkout Branch
-        run: |
-          if [[ ${{ contains(github.ref, 'maint') }} ]]; then
-            echo "No Deployment started."
-          else
-            echo "Starting Deployment on ${{ github.ref }} Branch."
-            exit 1
-          fi
+      - name: Check Branch
+        uses: mschmalzbauer/.github/actions/checkBranch@main
