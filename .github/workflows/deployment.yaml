@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Branch
         run: |
           echo "${{ github.ref }}"
-          if [ ${{ contains(github.ref, '/maint') }} ]; then
+          if [ ${{ contains(github.ref, '/maint') == true }} ]; then
             echo "Starting Deployment on ${{ github.ref }} Branch."
           else
             echo "Deployment only allowed on a maint Branch!"
