@@ -11,6 +11,7 @@ jobs:
     
     steps:
       - name: Checkout Branch
+        if: ${{ contains(github.ref, 'maint') }}
         run: |
           echo "${{ github.ref }}"
           if [ ${{ contains(github.ref, 'maint') == true }} ]; then
