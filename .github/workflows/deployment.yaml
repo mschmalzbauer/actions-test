@@ -10,5 +10,13 @@ jobs:
     environment: 'dev'
     
     steps:
-      - name: Checkout Repos via Composite Action
-        uses: mschmalzbauer/.github/actions/checkoutRepo@main
+      - name: Checkout Branch
+        run: |
+          if [ "${{ inputs.env }}" == "dev" ]; then
+            if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+              echo "Starting DEV Deployment on main Branch."
+            else
+              echo "DEV deployment only allowed on main Branch!"
+              exit 1
+            fi
+          fi
