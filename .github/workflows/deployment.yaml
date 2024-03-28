@@ -12,9 +12,10 @@ jobs:
     steps:
       - name: Checkout Branch
         run: |
-            if [ "${{ github.ref }}" == "refs/heads/main" ]; then
-              echo "Starting DEV Deployment on main Branch."
-            else
-              echo "DEV deployment only allowed on main Branch!"
-              exit 1
-            fi
+          echo "${{ github.ref }}"
+          if [ "${{ contains(github.ref, "/maint") }}" ]; then
+            echo "Starting Deployment on ${{ github.ref }} Branch."
+          else
+            echo "Deployment only allowed on a maint Branch!"
+            exit 1
+          fi
