@@ -12,11 +12,9 @@ jobs:
     steps:
       - name: Checkout Branch
         run: |
-          if [ "${{ inputs.env }}" == "dev" ]; then
             if [ "${{ github.ref }}" == "refs/heads/main" ]; then
               echo "Starting DEV Deployment on main Branch."
             else
               echo "DEV deployment only allowed on main Branch!"
               exit 1
             fi
-          fi
