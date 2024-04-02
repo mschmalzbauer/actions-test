@@ -35,7 +35,7 @@ jobs:
         run: |
           git config --global user.email "michael@example.com"
           git config --global user.name "Michael"
-          git tag -a v1.0
+          git tag -a v1.0 -m "Version 1.0"
         
       - name: Calculate Result
         if:  ${{ steps.check_branch.outputs.deployment_env == '' }}
