@@ -17,12 +17,9 @@ jobs:
       - name: Check Branch
         if: ${{ inputs.env == 'dev' && ! startsWith(github.ref, 'refs/heads/maint') && ! startsWith(github.ref, 'refs/tags') }}
         id: check_branch
-        outputs:
-          deployment_env:
-            value: ${{ steps.chck_branch.outputs.deployment_env }}
         run: |
           echo "${{ inputs.env }}" >> $GITHUB_OUTPUT
 
       - name: Next Step
         run: |
-          echo ${{ steps.chck_branch.outputs.deployment_env }}
+          echo ${{ steps.chck_branch.outputs.[0] }}
