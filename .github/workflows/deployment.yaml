@@ -16,33 +16,29 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check Branch
+      - name: Check Prerequisites
         if: ${{ inputs.env == 'dev' && ! startsWith(github.ref, 'refs/heads/maint') && ! startsWith(github.ref, 'refs/tags') ||
                 inputs.env == 'int' && startsWith(github.ref, 'refs/heads/maint') ||
                 inputs.env == 'prod' && startsWith(github.ref, 'refs/tags') }}
         id: check_branch
         run: |
           echo "Started on ${{ github.ref_name }}"
-          echo "deployment_env=${{ inputs.env }}" >> $GITHUB_OUTPUT
+          echo "deployment_allowed=true" >> $GITHUB_OUTPUT
           
       - name: Checkout Repository
+        if: ${{ steps.check_branch.outputs.deployment_allowed == true }} 
         uses: actions/checkout@v4
 
-      - name: Next Step
-        if: ${{ steps.check_branch.outputs.deployment_env != '' }}
-        run: |
-          echo ${{ steps.check_branch.outputs.deployment_env }}
-
       - name: Tagging
-        if: ${{ steps.check_branch.outputs.deployment_env == 'int' }}
+        if: ${{ steps.check_branch.outputs.deployment_allowed == true  && inputs.env == 'int' }}
         run: |
           git config --global user.email "michael@example.com"
           git config --global user.name "Michael"
-          git tag -a v1.0 -m "Version 1.0"
+          git tag -a ${{ github.ref_name }}  -m "Version ${{ github.ref_name }}"
           git push origin v1.0
         
       - name: Job Result
-        if:  ${{ steps.check_branch.outputs.deployment_env == '' }}
+        if:  ${{ steps.check_branch.outputs.deployment_allowed != true' }}
         run: |
           echo "Deployment prerequisite not met!"
           echo "Environment: ${{ inputs.env}}"
