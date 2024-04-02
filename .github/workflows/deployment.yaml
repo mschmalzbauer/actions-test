@@ -22,4 +22,4 @@ jobs:
 
       - name: Next Step
         run: |
-          echo ${{ steps.chck_branch.outputs.[0] }}
+          echo ${{ steps.check_branch.outputs.* }}
