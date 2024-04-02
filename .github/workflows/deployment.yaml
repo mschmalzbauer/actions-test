@@ -15,7 +15,8 @@ jobs:
     
     steps:
       - name: Check Branch
-        if: ${{ inputs.env == 'dev' && ! startsWith(github.ref, 'refs/heads/maint') && ! startsWith(github.ref, 'refs/tags') }}
+        if: ${{ inputs.env == 'dev' && ! startsWith(github.ref, 'refs/heads/maint') && ! startsWith(github.ref, 'refs/tags') ||
+                inputs.env == 'int' && startsWith(github.ref, 'refs/heads/maint') }}
         id: check_branch
         run: |
           echo "deployment_env=${{ inputs.env }}" >> $GITHUB_OUTPUT
