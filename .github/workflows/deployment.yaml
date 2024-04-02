@@ -24,3 +24,9 @@ jobs:
         if: ${{ steps.check_branch.outputs.deployment_env != '' }}
         run: |
           echo ${{ steps.check_branch.outputs.deployment_env }}
+          
+      - name: Calculate Result
+        if:  ${{ steps.check_branch.outputs.deployment_env == '' }}
+        run: |
+          echo "Deployment prerequisite not met!"
+          exit 1
