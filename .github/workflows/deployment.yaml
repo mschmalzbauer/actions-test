@@ -9,21 +9,23 @@ on:
         options:
           - dev
           - int
+          - prod
     
 jobs:
   checkout:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout App Repository
-        uses: actions/checkout@v4
-      
       - name: Check Branch
         if: ${{ inputs.env == 'dev' && ! startsWith(github.ref, 'refs/heads/maint') && ! startsWith(github.ref, 'refs/tags') ||
-                inputs.env == 'int' && startsWith(github.ref, 'refs/heads/maint') }}
+                inputs.env == 'int' && startsWith(github.ref, 'refs/heads/maint') ||
+                inputs.env == 'prod' && startsWith(github.ref, 'refs/tags') }}
         id: check_branch
         run: |
           echo "deployment_env=${{ inputs.env }}" >> $GITHUB_OUTPUT
+          
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Next Step
         if: ${{ steps.check_branch.outputs.deployment_env != '' }}
@@ -31,7 +33,7 @@ jobs:
           echo ${{ steps.check_branch.outputs.deployment_env }}
 
       - name: Tagging
-        if: ${{ steps.check_branch.outputs.deployment_env != '' }}
+        if: ${{ steps.check_branch.outputs.deployment_env == 'int' }}
         run: |
           git config --global user.email "michael@example.com"
           git config --global user.name "Michael"
