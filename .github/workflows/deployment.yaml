@@ -38,7 +38,7 @@ jobs:
           git push origin v1.0
         
       - name: Job Result
-        if:  ${{ steps.check_branch.outputs.deployment_allowed != true' }}
+        if:  ${{ steps.check_branch.outputs.deployment_allowed != true }}
         run: |
           echo "Deployment prerequisite not met!"
           echo "Environment: ${{ inputs.env}}"
