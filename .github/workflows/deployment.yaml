@@ -22,6 +22,7 @@ jobs:
                 inputs.env == 'prod' && startsWith(github.ref, 'refs/tags') }}
         id: check_branch
         run: |
+          echo "Started on ${{ github.ref_name }}
           echo "deployment_env=${{ inputs.env }}" >> $GITHUB_OUTPUT
           
       - name: Checkout Repository
@@ -40,7 +41,7 @@ jobs:
           git tag -a v1.0 -m "Version 1.0"
           git push origin v1.0
         
-      - name: Calculate Result
+      - name: Job Result
         if:  ${{ steps.check_branch.outputs.deployment_env == '' }}
         run: |
           echo "Deployment prerequisite not met!"
