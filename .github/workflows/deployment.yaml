@@ -26,7 +26,12 @@ jobs:
         if: ${{ steps.check_branch.outputs.deployment_env != '' }}
         run: |
           echo ${{ steps.check_branch.outputs.deployment_env }}
-          
+
+      - name: Tagging
+        if: ${{ steps.check_branch.outputs.deployment_env != '' }}
+        run: |
+          git tag -a v1.0
+        
       - name: Calculate Result
         if:  ${{ steps.check_branch.outputs.deployment_env == '' }}
         run: |
