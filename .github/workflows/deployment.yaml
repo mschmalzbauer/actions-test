@@ -22,4 +22,4 @@ jobs:
 
       - name: Next Step
         run: |
-          echo "$GITHUB_OUTPUT"
+          echo ${{ steps.check_branch.outputs.* }}
