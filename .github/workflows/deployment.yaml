@@ -20,6 +20,7 @@ jobs:
         uses: mschmalzbauer/.github/actions/checkoutRepo@main
         with:
           env: ${{ inputs.env }}
+          github_ref: ${{ github.ref }}
         
       - name: Tagging
         if: ${{ steps.check_branch.outputs.deployment_allowed == 'true'  && inputs.env == 'int' }}
