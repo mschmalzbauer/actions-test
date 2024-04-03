@@ -30,3 +30,6 @@ jobs:
 
       - name: Tagging Version
         uses: mschmalzbauer/.github/actions/tagging@main
+        with:
+          env: ${{ inputs.env }}
+          version: ${{ inputs.version }}
