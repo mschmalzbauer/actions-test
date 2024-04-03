@@ -16,19 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check Prerequisites
-        if: ${{ inputs.env == 'dev' && ! startsWith(github.ref, 'refs/heads/maint') && ! startsWith(github.ref, 'refs/tags') ||
-                inputs.env == 'int' && startsWith(github.ref, 'refs/heads/maint') ||
-                inputs.env == 'prod' && startsWith(github.ref, 'refs/tags') }}
-        id: check_branch
-        run: |
-          echo "Started on ${{ github.ref_name }}"
-          echo "deployment_allowed=true" >> $GITHUB_OUTPUT
-          
-      - name: Checkout Repository
-        if: ${{ steps.check_branch.outputs.deployment_allowed == 'true' }} 
-        uses: actions/checkout@v4
-
+      - name: Check Branch
+        uses: mschmalzbauer/.github/actions/checkoutRepo@main
+        
       - name: Tagging
         if: ${{ steps.check_branch.outputs.deployment_allowed == 'true'  && inputs.env == 'int' }}
         run: |
