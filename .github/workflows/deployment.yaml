@@ -19,9 +19,9 @@ jobs:
       - name: Check Branch
         uses: mschmalzbauer/.github/actions/checkoutRepo@main
         with:
-          env: $ {{ inputs.env }}
+          env: ${{ inputs.env }}
         
       - name: Tagging
         uses: mschmalzbauer/.github/actions/tagging@main
         with:
-          env: $ {{ inputs.env }}
+          env: ${{ inputs.env }}
