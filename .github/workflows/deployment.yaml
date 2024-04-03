@@ -13,10 +13,15 @@ on:
     
 jobs:
   checkout:
-    name: "Checkout Repositories"
-    uses: mschmalzbauer/.github/.github/workflows/checkout.yaml@main
-
-  terraform:
-    name: "Execute Terraform"
-    needs: [checkout]
-    uses: mschmalzbauer/.github/.github/workflows/terraform.yaml@main
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check Branch
+        uses: mschmalzbauer/.github/actions/checkoutRepo@main
+        with:
+          env: ${{ inputs.env }}
+        
+      - name: Tagging
+        uses: mschmalzbauer/.github/actions/tagging@main
+        with:
+          env: ${{ inputs.env }}
