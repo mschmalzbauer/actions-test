@@ -23,3 +23,6 @@ jobs:
         
       - name: Terraform
         uses: mschmalzbauer/.github/actions/executeTerraform@main
+
+      - name: Tagging Version
+        uses: mschmalzbauer/.github/actions/tagging@main
