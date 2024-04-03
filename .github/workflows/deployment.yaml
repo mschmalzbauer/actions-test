@@ -18,8 +18,6 @@ jobs:
     steps:
       - name: Check Branch
         uses: mschmalzbauer/.github/actions/checkoutRepo@main
-        with:
-          env: ${{ inputs.env }}
         
       - name: Tagging
         if: ${{ steps.check_branch.outputs.deployment_allowed == 'true'  && inputs.env == 'int' }}
