@@ -13,4 +13,4 @@ on:
     
 jobs:
   checkout:
-    uses: mschmalzbauer/.github/workflows/checkout@main
+    uses: mschmalzbauer/.github/workflows/checkout.yaml@main
