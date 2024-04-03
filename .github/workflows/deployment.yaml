@@ -13,17 +13,17 @@ on:
       version:
         type: string
         description: Version to tag the repository with (only INT Deployment)
-        default: none
     
 jobs:
   deployment:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Check Branch
+      - name: Check Prerequisites
         uses: mschmalzbauer/.github/actions/checkoutRepo@main
         with:
           env: ${{ inputs.env }}
+          version: ${{ inputs.version }}
         
       - name: Terraform
         uses: mschmalzbauer/.github/actions/executeTerraform@main
