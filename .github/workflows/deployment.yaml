@@ -12,7 +12,7 @@ on:
           - prod
     
 jobs:
-  checkout:
+  deployment:
     runs-on: ubuntu-latest
     
     steps:
@@ -21,7 +21,5 @@ jobs:
         with:
           env: ${{ inputs.env }}
         
-      - name: Tagging
-        uses: mschmalzbauer/.github/actions/tagging@main
-        with:
-          env: ${{ inputs.env }}
+      - name: Terraform
+        uses: mschmalzbauer/.github/actions/executeTerraform@main
