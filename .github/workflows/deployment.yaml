@@ -22,17 +22,6 @@ jobs:
           env: $ {{ inputs.env }}
         
       - name: Tagging
-        if: ${{ steps.check_branch.outputs.deployment_allowed == 'true'  && inputs.env == 'int' }}
-        run: |
-          git config --global user.email "michael@example.com"
-          git config --global user.name "Michael"
-          git tag -a ${{ github.ref_name }}  -m "Version ${{ github.ref_name }}"
-          git push origin v1.0
-        
-      - name: Job Result
-        if:  ${{ steps.check_branch.outputs.deployment_allowed != 'true' }}
-        run: |
-          echo "Deployment prerequisite not met!"
-          echo "Environment: ${{ inputs.env}}"
-          echo "Branch/Tag ${{ github.ref}}"
-          exit 1
+        uses: mschmalzbauer/.github/actions/tagging@main
+        with:
+          env: $ {{ inputs.env }}
