@@ -15,3 +15,8 @@ jobs:
   checkout:
     name: "Checkout Repositories"
     uses: mschmalzbauer/.github/.github/workflows/checkout.yaml@main
+
+  terraform:
+    name: "Execute Terraform"
+    needs: [checkout]
+    uses: mschmalzbauer/.github/.github/workflows/terraform.yaml@main
