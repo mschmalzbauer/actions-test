@@ -13,16 +13,4 @@ on:
     
 jobs:
   checkout:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Check Branch
-        uses: mschmalzbauer/.github/actions/checkoutRepo@main
-        with:
-          env: ${{ inputs.env }}
-        
-      - name: Tagging
-        uses: mschmalzbauer/.github/actions/tagging@main
-        with:
-          env: ${{ inputs.env }}
-          working-directory: .
+    uses: mschmalzbauer/.github/workflows/checkout@main
