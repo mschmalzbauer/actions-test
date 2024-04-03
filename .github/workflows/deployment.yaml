@@ -14,4 +14,4 @@ on:
 jobs:
   checkout:
     name: "Checkout Repositories"
-    uses: mschmalzbauer/.github/workflows/checkout.yaml@main
+    uses: mschmalzbauer/.github/.github/workflows/checkout.yaml@main
