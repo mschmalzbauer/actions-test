@@ -16,6 +16,7 @@ on:
     
 jobs:
   deployment:
+    name: 'Terraform Deployment'
     runs-on: ubuntu-latest
     
     steps:
