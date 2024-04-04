@@ -1,5 +1,5 @@
 name: Deployment
-run-name: "[${{ inputs.env }} (${{ github.ref_name}})] - Terraform Deployment"
+run-name: "[${{ inputs.env }} (${{ github.ref_name }})] - Terraform Deployment"
 
 on:
   workflow_dispatch:
