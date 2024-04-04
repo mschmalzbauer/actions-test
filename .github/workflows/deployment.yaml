@@ -16,12 +16,20 @@ on:
     
 jobs:
   deployment:
-    name: 'Terraform Deployment'
     runs-on: ubuntu-latest
     
     steps:
-      - name: Deployment
-        uses: mschmalzbauer/.github/actions/deployment@main
+      - name: Check Prerequisites
+        uses: mschmalzbauer/.github/actions/checkoutRepo@main
+        with:
+          env: ${{ inputs.env }}
+          version: ${{ inputs.version }}
+        
+      - name: Terraform
+        uses: mschmalzbauer/.github/actions/executeTerraform@main
+
+      - name: Tagging Version
+        uses: mschmalzbauer/.github/actions/tagging@main
         with:
           env: ${{ inputs.env }}
           version: ${{ inputs.version }}
